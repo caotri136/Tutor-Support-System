@@ -1,0 +1,799 @@
+/* src/Pages/TutorRequestPage/TutorRequestPage.css */
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;   /* Ẩn scroll ngang toàn trang */
+}
+
+
+.tutor-request-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 24px;
+}
+
+.tutor-request-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.tutor-request-header h1 {
+  color: #007AD2; 
+  
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tutor-request-header p {
+  margin-top: 6px;
+  color: black;            /* Màu xanh luôn cho dòng mô tả */
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tutor-request-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+/* Toolbar */
+.tutor-request-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.filter-input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 150px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filter-input:hover {
+  border-color: #3498db;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* === SEARCH GROUP - CẢI THIỆN === */
+.search-group {
+  display: flex;
+  gap: 0; /* Loại bỏ gap giữa input và nút */
+  align-items: center;
+  height: fit-content;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 280px; /* Giới hạn chiều rộng trên desktop */
+}
+
+.search-input {
+  padding: 8px 12px 8px 36px; /* Thêm chỗ cho icon */
+  border: 1px solid #ddd;
+  border-radius: 6px 0 0 6px; /* Bo góc trái */
+  font-size: 14px;
+  width: 100%;
+  height: 38px; /* Đồng bộ chiều cao với filter-input */
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  z-index: 1;
+}
+
+/* Icon kính lúp */
+.search-box::before {
+  content: "🔍";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #95a5a6;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.refresh-btn {
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  background: white;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-radius: 0 6px 6px 0; /* Bo góc phải */
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+  color: #3498db;
+}
+
+/* Đảm bảo filter-input cũng có chiều cao đồng bộ */
+.filter-input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 150px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  height: 38px; /* Đồng bộ chiều cao */
+  box-sizing: border-box;
+}
+
+.filter-input:hover {
+  border-color: #3498db;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.refresh-btn {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+}
+
+/* Table */
+.tutor-request-table-container {
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+.tutor-request-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tutor-request-table thead {
+  background: #f8f9fa;
+}
+
+.tutor-request-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.tutor-request-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tutor-request-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.tutor-request-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.tutor-request-table tbody tr.selected {
+  background-color: #e3f2fd;
+}
+
+.name-cell {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Subject dropdown */
+.subject-dropdown {
+  position: relative;
+}
+
+.subject-btn {
+  padding: 6px 12px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.subject-btn:hover {
+  background: #2980b9;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 4px;
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fa;
+  color: #3498db;
+}
+
+.dropdown-item:first-child {
+  border-radius: 6px 6px 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+/* Status badges */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-processing {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+/* Actions */
+.tutor-request-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-send-request {
+  padding: 10px 24px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-send-request:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-send-request:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.confirm-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-modal h3 {
+  color: #3498db;
+  font-size: 24px;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.confirm-modal p {
+  color: #2c3e50;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.modal-subtext {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 24px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 10px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel {
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+.btn-cancel:hover {
+  background: #d5dbdb;
+}
+
+.btn-confirm {
+  background: #3498db;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Toast Notification */
+.notification-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  min-width: 320px;
+  overflow: hidden;
+  z-index: 2000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-header {
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+
+.notification-toast.success .toast-header {
+  background: #3498db;
+}
+
+.notification-toast.error .toast-header {
+  background: #e74c3c;
+}
+
+.toast-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 16px;
+  background: #27ae60;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.error-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 16px;
+  background: white;
+  border: 4px solid #e74c3c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.toast-body > div {
+  font-size: 14px;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.toast-body > div:first-child + div {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tutor-request-container {
+    padding: 16px;
+  }
+
+  .tutor-request-header h1 {
+    font-size: 22px;
+  }
+
+  .tutor-request-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    flex-direction: column;
+  }
+
+  .filter-input {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-group {
+    width: 100%;
+  }
+
+  .search-box {
+    flex: 1;
+  }
+
+  .tutor-request-actions {
+    justify-content: stretch;
+  }
+
+  .btn-send-request {
+    width: 100%;
+  }
+
+  .notification-toast {
+    right: 16px;
+    left: 16px;
+    min-width: auto;
+  }
+}
+
+
+/* ============ TONE MÀU CHUNG ============ */
+:root {
+  --tr-primary: #007AD2;
+  --tr-primary-soft: #f4f9ff;
+  --tr-primary-light: #e4f1ff;
+  --tr-primary-border: #b7ddff;
+}
+
+/* Card thu nhỏ lại, nằm giữa, nền xanh nhẹ */
+.tutor-request-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tutor-request-header {
+  width: 100%;
+  max-width: 1180px;
+  text-align: center;
+}
+
+.tutor-request-header h1 {
+  color: var(--tr-primary);
+  font-weight: 700;
+}
+
+.tutor-request-header p {
+  color: var(--tr-primary);
+  font-weight: 500;
+}
+
+.tutor-request-card {
+  width: 100%;
+  max-width: 1180px;
+  background: linear-gradient(135deg, #ffffff 0%, #f7fbff 40%, #ffffff 100%);
+  border-radius: 16px;
+  border: 1px solid var(--tr-primary-border);
+  box-shadow: 0 10px 30px rgba(0, 74, 129, 0.1);
+}
+
+/* ============ BẢNG: MÀU SẮC & THU NHỎ ============ */
+
+/* Không cho scroll ngang trên màn hình lớn */
+.tutor-request-table-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Cho phép dùng scroll ngang lại khi màn hình nhỏ */
+@media (max-width: 992px) {
+  .tutor-request-table-container {
+    overflow-x: auto;
+  }
+}
+
+/* Bảng co theo card, xuống dòng khi chữ dài */
+.tutor-request-table {
+  table-layout: fixed;
+}
+
+.tutor-request-table th,
+.tutor-request-table td {
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 10px 12px;
+}
+
+/* Định lại độ rộng từng cột để khỏi phình ngang */
+.tutor-request-table th:nth-child(1),
+.tutor-request-table td:nth-child(1) {
+  width: 4%;
+}
+
+.tutor-request-table th:nth-child(2),
+.tutor-request-table td:nth-child(2) {
+  width: 14%; /* Họ tên */
+}
+
+.tutor-request-table th:nth-child(3),
+.tutor-request-table td:nth-child(3) {
+  width: 10%; /* MSSV */
+}
+
+.tutor-request-table th:nth-child(4),
+.tutor-request-table td:nth-child(4) {
+  width: 30%; /* Khoa */
+}
+
+.tutor-request-table th:nth-child(5),
+.tutor-request-table td:nth-child(5) {
+  width: 12%; /* Lớp */
+}
+
+.tutor-request-table th:nth-child(6),
+.tutor-request-table td:nth-child(6) {
+  width: 8%;  /* GPA */
+  text-align: center;
+}
+
+.tutor-request-table th:nth-child(7),
+.tutor-request-table td:nth-child(7) {
+  width: 12%; /* Môn đề xuất */
+  text-align: center;
+}
+
+/* Header bảng: nền gradient xanh + chữ trắng căn giữa */
+.tutor-request-table thead {
+  background: linear-gradient(90deg, #007ad2, #0094ff);
+}
+
+.tutor-request-table th {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  border-bottom: none;
+}
+
+.tutor-request-table th:first-child {
+  text-align: left;
+}
+
+/* Hàng lẻ / chẵn khác màu, hover nổi rõ hơn */
+.tutor-request-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.tutor-request-table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.tutor-request-table tbody tr:hover {
+  background-color: #e8f3ff;
+}
+
+/* Hàng được chọn: nền xanh nhạt + viền trái */
+.tutor-request-table tbody tr.selected {
+  background-color: #d5e9ff;
+  box-shadow: inset 3px 0 0 var(--tr-primary);
+}
+
+/* Cột Họ tên đậm hơn một chút */
+.tutor-request-table td:nth-child(2) {
+  font-weight: 600;
+  color: #0b1e36;
+}
+
+/* ============ NÚT CHỌN MÔN ============ */
+
+.subject-btn {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #007ad2, #0094ff);
+  border-radius: 999px;
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.subject-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 122, 210, 0.4);
+}
+
+.subject-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 74, 129, 0.4);
+}
+/* ===== HEADER & KHOẢNG CÁCH VỚI BẢNG ===== */
+
+.tutor-request-header {
+  margin-bottom: 4px;          /* sát hơn với bảng */
+}
+
+.tutor-request-card {
+  margin-top: 0;
+}
+
+/* ===== KHUNG BẢNG + BORDER TRÁI / PHẢI ===== */
+
+.tutor-request-table-container {
+  margin-top: 4px;
+  border-left: 2px solid #e0e8f4;
+  border-right: 2px solid #e0e8f4;
+  border-radius: 8px;
+  overflow: hidden;            /* để header xanh dính với border */
+}
+
+/* Đảm bảo border dính nhau */
+.tutor-request-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Lưới mỏng cho tất cả ô */
+.tutor-request-table th,
+.tutor-request-table td {
+  border-bottom: 1px solid #e0e8f4;
+  border-right: 1px solid #e0e8f4;
+}
+
+/* Kẻ thêm đường bên trái cho cột đầu tiên */
+.tutor-request-table th:first-child,
+.tutor-request-table td:first-child {
+  border-left: 1px solid #e0e8f4;
+}
+
+/* Header có gạch chân nhẹ phân tách */
+.tutor-request-table thead th {
+  border-bottom: 2px solid #e0e8f4;
+}
+

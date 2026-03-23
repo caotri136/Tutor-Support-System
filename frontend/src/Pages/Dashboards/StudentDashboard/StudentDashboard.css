@@ -1,0 +1,628 @@
+/* =========================
+   PALETTE CHUNG CHO DASHBOARD
+   ========================= */
+:root{
+  --sd-primary: #007AD2;        /* màu chính */
+  --sd-primary-dark: #005C9C;   /* xanh đậm hơn */
+  --sd-primary-mid: #0094FF;    /* xanh sáng hơn một chút */
+  --sd-primary-soft: #F4F9FF;   /* nền rất nhạt */
+  --sd-primary-light: #E1F3FF;  /* ô nhạt */
+  --sd-primary-border: #B7DDFF; /* viền xanh nhạt */
+  --sd-text: #0B1E36;
+}
+
+/* ============================================================================
+   STUDENT DASHBOARD (STUDENTDASH) - LIGHT BLUE THEME
+   ============================================================================ */
+.studentdash {
+  padding: 24px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  /* NỀN MÀU XANH RẤT NHẠT - KHÔNG CÒN HÌNH NỀN */
+  background: var(--sd-primary-soft);
+  min-height: 100vh;
+  color: var(--sd-text);
+}
+
+/* Title Section */
+.studentdash-title-wrap {
+  width: min(820px, 92vw);
+  background: #ffffff;
+  margin-bottom: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 58, 104, 0.12);
+  border: 1px solid var(--sd-primary-border);
+}
+
+.studentdash-title {
+  margin: 4px 0;
+  text-align: center;
+  color: var(--sd-primary-dark);
+  font-weight: 900;
+  font-size: clamp(22px, 3vw, 36px);
+  letter-spacing: 1px;
+}
+
+/* Panel Containers */
+.studentdash-panel {
+  width: min(820px, 92vw);
+  border: 1px solid var(--sd-primary-border);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 20px 16px 26px;
+  box-shadow: 0 10px 25px rgba(0, 58, 104, 0.12);
+  margin-bottom: 24px;
+}
+
+.studentdash-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #dbe2f3;
+  padding-bottom: 12px;
+}
+
+.studentdash-section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--sd-primary-dark);
+  margin: 0;
+  
+}
+
+.studentdash-empty {
+  text-align: center;
+  color: #6b7280;
+  padding: 32px;
+  font-weight: 500;
+}
+
+/* ============================================================================
+   STATS SECTION  (Ô NỔI RÕ NHẤT)
+   ============================================================================ */
+.studentdash-stats {
+  width: min(820px, 92vw);
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.studentdash-stat-card {
+  flex: 1;
+  min-width: 150px;
+  background: linear-gradient(135deg, var(--sd-primary) 0%, var(--sd-primary-mid) 100%);
+  color: #fff;
+  padding: 20px 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(0, 90, 150, 0.45);
+  border: none;
+}
+
+.studentdash-stat-value {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.studentdash-stat-label {
+  font-size: .95rem;
+  opacity: .96;
+  font-weight: 600;
+}
+
+/* ============================================================================
+   QUICK ACTIONS (GRID)  – MÀU XANH NHẠT HƠN STATS
+   ============================================================================ */
+.studentdash-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 40px;
+  row-gap: 28px;
+  padding-top: 16px;
+}
+
+.studentdash-card-link {
+  text-decoration: none;
+  display: block;
+  flex: 0 1 320px;
+}
+
+.studentdash-quick-card {
+  border: 1px solid var(--sd-primary-border);
+  padding: 18px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 80px;
+
+  background: var(--sd-primary-light);
+  transition: transform .15s, box-shadow .15s, border-color .15s, background .15s;
+}
+
+.studentdash-quick-card:hover {
+  background: #cfe8ff;
+  border-color: var(--sd-primary);
+  box-shadow: 0 8px 20px rgba(0, 90, 150, 0.35);
+  transform: translateY(-3px);
+}
+
+.studentdash-quick-icon {
+  font-size: 1.8rem;
+  color: var(--sd-primary-dark);
+}
+
+.studentdash-quick-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+/* ============================================================================
+   MEETINGS LIST – Ô TRẮNG, CHỈ NHẤN VIỀN XANH
+   ============================================================================ */
+.studentdash-meetings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 8px 6px 8px 0;
+}
+
+.studentdash-meeting-card {
+  padding: 14px 16px;
+  border: 1px solid #d1d9ea;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #0f172a;
+  transition: all .18s;
+  background: #ffffff;
+  cursor: pointer;
+  
+}
+
+.studentdash-meeting-card:hover {
+  border-color: var(--sd-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 90, 150, 0.25);
+  background: var(--sd-primary-light);
+}
+
+.studentdash-meeting-time {
+  font-size: .9rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.studentdash-meeting-topic {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.studentdash-meeting-tutor {
+  font-size: .95rem;
+  color: #374151;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.studentdash-meeting-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+/* Status Colors giữ nguyên vì là trạng thái, không cần xanh */
+.status-pending { background: #fffbeb; color: #92400e; border: 1px solid #facc15; }
+/* ==== MÀU CHO BADGE CONFIRMED ==== */
+.status-confirmed {
+  background: #16a34a;      /* nền xanh lá đậm */
+  color: #ffffff;           /* chữ trắng cho dễ đọc */
+  border: 1px solid #16a34a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.status-completed { background: #eff6ff; color: var(--sd-primary-dark); border: 1px solid #60a5fa; }
+.status-canceled { background: #fef2f2; color: #b91c1c; border: 1px solid #f87171; }
+
+/* ============================================================================
+   MODALS
+   ============================================================================ */
+.studentdash-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 30, 66, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.studentdash-modal-content {
+  background: #ffffff;
+  border: 1px solid var(--sd-primary-border);
+  border-radius: 14px;
+  width: min(900px, 100%);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 74, 130, 0.35);
+  color: var(--sd-text);
+}
+
+.studentdash-modal-detail {
+  width: min(650px, 100%);
+}
+
+.studentdash-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid #dbe2f3;
+  background: linear-gradient(135deg, var(--sd-primary), var(--sd-primary-dark));
+  border-radius: 13px 13px 0 0;
+  color: #ffffff;
+}
+
+.studentdash-modal-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.studentdash-modal-close {
+  background: #fff;
+  border: 2px solid #007AD2;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #007AD2;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  transition: .12s;
+}
+.studentdash-modal-close:hover {
+ 
+  background: #007AD2;
+  color: #ffffff;  
+}
+
+/* Tabs */
+.studentdash-modal-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 24px;
+  border-bottom: 1px solid #dbe2f3;
+  overflow-x: auto;
+  background: var(--sd-primary-soft);
+}
+
+.studentdash-modal-tabs button {
+  background: #ffffff;
+  border: 1px solid #cbd5f5;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #4b5563;
+  transition: .12s;
+  white-space: nowrap;
+}
+
+.studentdash-modal-tabs button:hover {
+  background: var(--sd-primary-light);
+  color: var(--sd-primary-dark);
+  border-color: var(--sd-primary);
+}
+
+.studentdash-modal-tabs button.tab-active {
+  background: var(--sd-primary);
+  color: #ffffff;
+  border-color: var(--sd-primary);
+}
+
+.studentdash-modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(85vh - 160px);
+  background: #ffffff;
+   color: #0B1E36;
+}
+
+/* Detail Section */
+.detail-section {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dbe2f3;
+}
+.detail-section:last-of-type {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+}
+
+.detail-value {
+  font-size: 1.02rem;
+  color: #111827;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.detail-link {
+  color: var(--sd-primary);
+  text-decoration: none;
+  font-size: 1.02rem;
+  word-break: break-all;
+}
+.detail-link:hover {
+  text-decoration: underline;
+  color: var(--sd-primary-dark);
+}
+
+.detail-actions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #dbe2f3;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+.studentdash-view-all-btn {
+  background: var(--sd-primary);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  font-size: .95rem;
+}
+.studentdash-view-all-btn:hover {
+  background: var(--sd-primary-dark);
+}
+
+.studentdash-btn {
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .12s;
+  box-shadow: 0 4px 6px rgba(0, 74, 130, 0.25);
+}
+
+.studentdash-btn-cancel,
+.studentdash-btn-rate {
+  padding: 12px 28px;
+}
+
+/* RED CANCEL */
+.studentdash-btn-cancel {
+  background: #ef4444;
+  color: #fff;
+}
+.studentdash-btn-cancel:hover:not(:disabled) {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+/* BLUE RATE */
+.studentdash-btn-rate {
+  background: var(--sd-primary);
+  color: #fff;
+}
+.studentdash-btn-rate:hover:not(:disabled) {
+  background: var(--sd-primary-dark);
+  transform: translateY(-1px);
+}
+
+.studentdash-btn-submit-rating {
+  background: var(--sd-primary);
+  color: #fff;
+  width: 100%;
+  padding: 12px 32px;
+}
+.studentdash-btn-submit-rating:hover:not(:disabled) {
+  background: var(--sd-primary-dark);
+  transform: translateY(-1px);
+}
+
+.studentdash-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  background: #9ca3af;
+  box-shadow: none;
+}
+
+/* ============================================================================
+   RATING BOX (Light Theme – NỀN XANH RẤT NHẸ)
+   ============================================================================ */
+.rating-box {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--sd-primary-soft);
+  border: 1px solid var(--sd-primary-border);
+  border-radius: 10px;
+}
+
+.rating-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px 0;
+}
+
+.rating-field {
+  margin-bottom: 16px;
+}
+.rating-field label {
+  display: block;
+  font-size: .95rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.star-rating button {
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  cursor: pointer;
+  padding: 0;
+  transition: all .12s;
+  line-height: 1;
+}
+
+.star-active {
+  color: #facc15;
+}
+.star-inactive {
+  color: #d1d5db;
+}
+
+.star-rating button:hover {
+  transform: scale(1.08);
+}
+
+.rating-text {
+  color: #4b5563;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+  min-height: 22px;
+}
+
+.rating-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5f5;
+  border-radius: 8px;
+  font-size: .95rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #111827;
+}
+.rating-textarea:focus {
+  outline: none;
+  border-color: var(--sd-primary);
+  box-shadow: 0 0 0 2px rgba(0, 122, 210, 0.35);
+}
+
+.rating-char-count {
+  text-align: right;
+  font-size: .85rem;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+/* ============================================================================
+   CUSTOM SCROLLBARS
+   ============================================================================ */
+.studentdash-meetings-list::-webkit-scrollbar,
+.studentdash-modal-body::-webkit-scrollbar,
+.modal-tabs::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+.studentdash-meetings-list::-webkit-scrollbar-track,
+.studentdash-modal-body::-webkit-scrollbar-track,
+.modal-tabs::-webkit-scrollbar-track {
+  background: #e1edff;
+  border-radius: 10px;
+}
+
+.studentdash-meetings-list::-webkit-scrollbar-thumb,
+.studentdash-modal-body::-webkit-scrollbar-thumb,
+.modal-tabs::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+  border-radius: 10px;
+  border: 3px solid #e1edff;
+}
+
+.studentdash-meetings-list::-webkit-scrollbar-thumb:hover,
+.studentdash-modal-body::-webkit-scrollbar-thumb:hover,
+.modal-tabs::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+
+/* ==== SỬA MÀU CHỮ TRONG MODAL CHI TIẾT BUỔI HỌC ==== */
+.studentdash-modal-body {
+  color: #0B1E36;              /* chữ chính */
+}
+
+.studentdash-modal-body .detail-label {
+  color: #6b7280;              /* CHỦ ĐỀ, GIẢNG VIÊN ... */
+  font-weight: 700;
+}
+
+.studentdash-modal-body .detail-value {
+  color: #0B1E36;              /* nội dung: Học Điện tử số, tên giảng viên... */
+  font-weight: 500;
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 760px) {
+  .studentdash-grid {
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  .studentdash-card-link {
+    flex: 1 1 280px;
+  }
+  .studentdash-stats {
+    flex-direction: column;
+  }
+  .stat-card {
+    min-width: 100%;
+  }
+  .studentdash-modal-content {
+    width: 94%;
+  }
+}

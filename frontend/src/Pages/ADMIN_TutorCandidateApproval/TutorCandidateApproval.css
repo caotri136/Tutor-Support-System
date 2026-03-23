@@ -1,0 +1,517 @@
+/* =========================
+   LAYOUT CHUNG
+   ========================= */
+
+.tutor-approval-container {
+  min-height: calc(100vh - var(--footer-h, 72px));
+  padding: 24px 24px 40px;
+  box-sizing: border-box;
+  background: #f4f6fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.tutor-approval-header {
+  width: 100%;
+  max-width: 1180px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.tutor-approval-header h1 {
+  font-size: 40px;
+  font-weight: 900;
+  color: #007ad2;
+  margin: 0;
+}
+
+/* Card chính */
+
+.tutor-approval-card {
+  width: 100%;
+  max-width: 1180px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+/* =========================
+   TOOLBAR: FILTER + SEARCH
+   ========================= */
+
+/* Thanh trên cùng: 1 hàng ngang, không wrap trên desktop */
+.tutor-approval-toolbar {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16px;
+  background: #e8f1ff;
+  flex-wrap: nowrap;
+}
+
+/* 3 filter bên trái: nằm ngang */
+.filter-group {
+  display: flex;
+  flex-direction: row !important;   /* bắt buộc nằm ngang */
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+/* Box từng filter */
+.filter-box {
+  background: #ffffff;
+  border: 1px solid #cbd5f5;
+  border-radius: 8px;
+  padding: 6px 10px;
+  min-width: 200px;                 /* tăng chiều dài */
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.filter-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #007ad2;
+  margin-bottom: 2px;
+}
+
+/* select bên trong, không cắt chữ */
+.filter-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #111827;
+  width: 100%;
+  padding: 10px 12px;     /* tăng padding trên/dưới */
+  min-height: 42px;       /* đảm bảo ô đủ cao */
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+
+/* Nhóm search bên phải: Tìm kiếm + Refresh nằm ngang */
+.search-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;                /* đẩy về phía bên phải */
+}
+
+/* Ô tìm kiếm */
+.search-input {
+  width: 260px;
+   padding: 8px 10px 8px 6px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: #007ad2;
+  box-shadow: 0 0 0 2px rgba(0, 122, 210, 0.2);
+}
+
+/* Nút Refresh */
+.search-group button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #007ad2;
+  background: #007ad2;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.search-group button:hover {
+  background: #005c9c;
+  box-shadow: 0 4px 10px rgba(0, 122, 210, 0.25);
+  transform: translateY(-1px);
+}
+
+.search-group button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 122, 210, 0.2);
+}
+
+/* =========================
+   TABLE
+   ========================= */
+
+.tutor-approval-table-container {
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.tutor-approval-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.tutor-approval-table th,
+.tutor-approval-table td {
+  padding: 10px 8px;
+  font-size: 14px;
+}
+
+.tutor-approval-table th {
+  background: #007ad2;
+  color: #ffffff;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.tutor-approval-table td {
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
+}
+
+.tutor-approval-table tbody tr:hover {
+  background: #f1f5ff;
+}
+
+.tutor-approval-table tr.selected {
+  background: #e0edff;
+}
+
+.name-cell {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gpa-low {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.action-view {
+  background: #ffffff;
+  color: #007ad2;
+  border: 1px solid #bcd6ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.action-view:hover {
+  background: #e8f1ff;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
+}
+
+.action-view:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.12);
+}
+
+/* =========================
+   BULK ACTIONS
+   ========================= */
+
+.tutor-approval-actions {
+  padding: 12px 16px 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-reject,
+.btn-approve {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-reject {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.btn-reject:hover:not(:disabled) {
+  background: #fee2e2;
+}
+
+.btn-approve {
+  background: #007ad2;
+  color: #ffffff;
+  border: 1px solid #007ad2;
+}
+
+.btn-approve:hover:not(:disabled) {
+  background: #005c9c;
+}
+
+.btn-reject:disabled,
+.btn-approve:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.detail-modal {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px 18px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.25);
+}
+
+.confirm-modal {
+  background: #ffffff;
+  padding: 22px 24px 20px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.25);
+}
+
+.confirm-modal h3 {
+  margin: 0 0 12px;
+  color: #007ad2;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.confirm-modal p {
+  margin-bottom: 20px;
+  color: #374151;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 88px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-cancel {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-cancel:hover {
+  background: #e5e7eb;
+}
+
+.btn-confirm {
+  background: #007ad2;
+  color: #ffffff;
+  border: 1px solid #007ad2;
+}
+
+.btn-confirm:hover {
+  background: #005c9c;
+}
+
+/* =========================
+   TOAST
+   ========================= */
+
+.notification-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 320px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+  z-index: 1100;
+  animation: slideIn 0.25s ease-out;
+  border: 1px solid #e5e7eb;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-header {
+  background: #007ad2;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.toast-body {
+  padding: 12px 14px 14px;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.notification-toast.error .toast-header {
+  background: #dc2626;
+}
+
+.notification-toast.success .toast-header {
+  background: #16a34a;
+}
+
+.notification-toast.warning .toast-header {
+  background: #d97706;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1024px) {
+  .tutor-approval-toolbar {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .tutor-approval-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    flex-wrap: wrap;
+  }
+
+  .search-group {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .tutor-approval-container {
+    padding: 16px 12px 28px;
+  }
+
+  .tutor-approval-card {
+    border-radius: 12px;
+  }
+
+  .tutor-approval-header h1 {
+    font-size: 26px;
+  }
+
+  .tutor-approval-table th,
+  .tutor-approval-table td {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+}
+
+
+/* ===== Giảm khoảng cách giữa tiêu đề và bảng ===== */
+.tutor-request-header {
+  margin-bottom: 12px; /* trước là 24px */
+}
+
+.tutor-request-card {
+  margin-top: 0;
+}
+
+/* ===== Kẻ thêm đường kẻ cho bảng ===== */
+
+/* Đảm bảo border dính nhau */
+.tutor-request-table {
+  border-collapse: collapse;
+}
+
+/* Đường dọc giữa các cột */
+.tutor-request-table th,
+.tutor-request-table td {
+  border-right: 2px solid #e0e8f4; /* kẻ cột màu xanh nhạt */
+}
+
+.tutor-request-table th:last-child,
+.tutor-request-table td:last-child {
+  border-right: none; /* cột cuối không cần kẻ */
+}
+
+/* Đường ngang giữa các hàng */
+.tutor-request-table tbody td {
+  border-bottom: 2px solid #e0e8f4;
+}
+
+/* Đường gạch dưới header cho nổi cột */
+.tutor-request-table thead th {
+  border-bottom: 2px solid #e0e8f4;
+}
+

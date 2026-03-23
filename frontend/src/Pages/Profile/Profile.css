@@ -1,0 +1,297 @@
+/* --- Container Layout --- */
+.pf {
+  padding: 20px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+.pf-title {
+  margin: 0 0 20px;
+  text-align: center;
+  color: #1e3a8a; /* Dark Blue */
+  font-weight: 800;
+  font-size: clamp(24px, 4vw, 32px);
+}
+
+/* Main Blue Border Panel */
+.pf-panel {
+  width: min(1100px, 94vw);
+  border: 4px solid #2563eb; /* Bright Blue Border */
+  border-radius: 12px;
+  background: #fff;
+  padding: 24px;
+
+  /* FLEX: 2 cột cùng chiều cao */
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* --- Left Column: Avatar & Role --- */
+.pf-left {
+  flex: 0 0 320px;          /* giống grid-template-columns: 320px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;       /* để đặt badge absolute */
+}
+
+.pf-avatar {
+  flex: 1 1 auto;           /* luôn kéo cao bằng cột bên phải */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pf-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ảnh thật vẫn fill khung, không méo */
+}
+
+/* PLACEHOLDER AVATAR (person xanh nhạt) */
+.pf-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dbeafe;
+}
+
+.pf-avatar-circle {
+  width: 60%;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  background: #bfdbfe;
+  position: relative;
+}
+
+.pf-avatar-head {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  background: #eff6ff;
+}
+
+.pf-avatar-body {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40%;
+  border-radius: 999px 999px 40% 40%;
+  background: #eff6ff;
+}
+
+/* Đưa dòng chứa badge ra khỏi flow để avatar chiếm full chiều cao */
+.pf-left > div:last-child {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+}
+
+/* Badge chung cho mọi role */
+.status-badge {
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+
+  background-color: #fff7d6;   /* nền vàng nhạt giống student */
+  color: #b58100;              /* chữ vàng đậm */
+  border: 1px solid #ffe2a8;   /* viền vàng nhạt */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+
+/* --- Right Column: Form Fields --- */
+.pf-right {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Container Background */
+.pf-form {
+  background: #eff6ff;
+  border-radius: 8px;
+  padding: 24px 28px;
+  border: 1px solid #dbeafe;
+  flex: 1 1 auto;      /* cao bằng avatar */
+}
+
+/* Standard Field Row */
+.pf-field {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pf-field:last-child {
+  margin-bottom: 0;
+}
+
+.pf-label {
+  font-weight: 700;
+  color: #1e3a8a;
+  font-size: 0.95rem;
+}
+
+.pf-input {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+  background: #ffffff;
+  padding: 0 12px;
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pf-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.pf-input.is-readonly {
+  background-color: #ffffff;
+  pointer-events: none;
+  color: #111827;
+}
+
+/* --- Split Row (Khoa & Lớp) --- */
+.pf-row-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pf-row-split .pf-field {
+  grid-template-columns: 160px 1fr;
+  margin-bottom: 0;
+  gap: 16px;
+}
+
+/* --- Tutor Section Divider & Tags giữ nguyên như cũ... */
+.pf-section-divider {
+  height: 1px;
+  background-color: #bfdbfe;
+  margin: 24px 0 16px;
+}
+
+.pf-section-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 16px;
+}
+
+.pf-tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.pf-tag {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0284c7;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #bae6fd;
+  white-space: nowrap;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .pf-panel {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+  }
+
+  .pf-left {
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pf-avatar {
+    flex: 0 0 auto;
+    width: 180px;
+    height: auto;
+  }
+
+  .pf-left > div:last-child {
+    position: static;
+    margin-top: 12px !important;
+  }
+
+  .pf-right {
+    flex: 0 0 auto;
+  }
+
+  .pf-form {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .pf-left {
+    flex-direction: column;
+  }
+
+  .pf-form {
+    padding: 16px;
+  }
+
+  .pf-field {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .pf-row-split {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pf-row-split .pf-field {
+    grid-template-columns: 1fr;
+  }
+
+  .pf-label {
+    margin-bottom: 2px;
+  }
+}

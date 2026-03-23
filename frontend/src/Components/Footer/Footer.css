@@ -1,0 +1,75 @@
+:root {
+  --primary: #007ad2;
+  --footer-h: 72px;           /* chiều cao footer */
+}
+
+/* FOOTER */
+.footer {
+  background: var(--primary);
+  color: #fff;
+  margin-top: auto;
+}
+
+.footer-row {
+  min-height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bk-badge {
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.bk-badge img {
+  height: calc(var(--footer-h) - 12px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Nếu muốn logo đơn sắc trắng thì bỏ comment dòng dưới */
+/* .bk-badge img { filter: brightness(0) invert(1); } */
+
+.footer-left-text {
+  line-height: 1.1;
+}
+
+/* RIGHT */
+.footer-right {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.footer-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.footer-sub {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* Responsive: giảm footer ở màn nhỏ để không chiếm chỗ */
+@media (max-width: 480px) {
+  :root {
+    --footer-h: 60px;
+  }
+
+  .footer-title {
+    font-size: 18px;
+  }
+}
