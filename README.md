@@ -610,7 +610,6 @@ npx prisma db push
 - **Môn học:** Công Nghệ Phần Mềm (CO3001)
 - **Trường:** Đại học Bách Khoa - ĐHQG TP.HCM
 - **Học kỳ:** HK251 (2024-2025)
-- **Repository:** [github.com/ThanhCongNguyen-2310373/Tutor-Support-System](https://github.com/ThanhCongNguyen-2310373/Tutor-Support-System)
 - **Issues:** [GitHub Issues](https://github.com/ThanhCongNguyen-2310373/Tutor-Support-System/issues)
 
 ---
